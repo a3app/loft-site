@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>loft — Loft Overlay For TLS</title>
+  <meta name="description" content="A private overlay carried inside TLS 1.3. The session holds through short disconnects and packet loss. Protocol loft/1.0." />
+  <link rel="canonical" href="https://loft.cx/" />
+  <link rel="icon" href="brand/loft-favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="brand/apple-touch.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="loft" />
+  <meta property="og:title" content="loft — Loft Overlay For TLS" />
+  <meta property="og:description" content="A private overlay carried inside TLS 1.3. Protocol loft/1.0. Share links as loft://." />
+  <meta property="og:url" content="https://loft.cx/" />
+  <meta property="og:image" content="https://loft.cx/brand/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0e0c0b" />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body data-page="home">
+  <nav>
+    <div class="wrap bar">
+      <a class="brand" href="/">
+        <svg class="mark" viewBox="0 0 96 96" aria-hidden="true">
+          <path class="body" d="M37.76 6.72 A0.96 0.96 0 0 1 39.01 6.74 L57.6 29.52 L57.6 63.76 A4.4 4.4 0 0 0 62 68.16 L84.8 68.16 A3.2 3.2 0 0 1 88 71.36 L88 86.16 A3.84 3.84 0 0 1 84.16 90 L21.44 90 A3.84 3.84 0 0 1 17.6 86.16 L17.6 29.52 Z"/>
+          <path class="lamp" d="M31.36 36.24 H43.84 A2.56 2.56 0 0 1 46.4 38.8 V55.52 A2.56 2.56 0 0 1 43.84 58.08 H31.36 A2.56 2.56 0 0 1 28.8 55.52 V38.8 A2.56 2.56 0 0 1 31.36 36.24 Z"/>
+        </svg>
+        loft
+      </a>
+      <div class="links">
+        <a href="#overlay" data-i="navOverlay">Overlay</a>
+        <a href="#app" data-i="navApp">App</a>
+        <a href="#panel" data-i="navPanel">Panel</a>
+        <a href="#download" data-i="navDl">Download</a>
+        <a href="https://a3app.github.io/loft/" data-i="navSpec">Spec</a>
+        <a href="https://github.com/a3app/loft" data-i="navSrc">Source</a>
+      </div>
+      <div class="spacer"></div>
+      <a class="btn go cta-m" href="#download" data-i="ctaDl">Download</a>
+      <div class="lang">
+        <button type="button" id="lang-en" onclick="setLang('en')">EN</button>
+        <button type="button" id="lang-ru" onclick="setLang('ru')">RU</button>
+        <button type="button" id="lang-zh" onclick="setLang('zh')">中文</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="overlay">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="tag" data-i="heroTag">Loft Overlay For TLS</p>
+        <h1 data-i="heroH">A private overlay inside ordinary HTTPS</h1>
+        <p class="lead" data-i="heroLead">SSH, a browser, and curl speak to a local SOCKS5 or TUN. Streams ride one mux, sealed with ChaCha20-Poly1305. On the public path the session is TLS 1.3, so a CDN or reverse proxy may sit in front of the node. Short disconnects and packet loss leave inner TCP standing.</p>
+        <div class="btns">
+          <a class="btn go" href="#download" data-i="ctaDl">Download</a>
+          <a class="btn ghost" href="https://github.com/a3app/loft" data-i="ctaSrc">Source</a>
+        </div>
+      </div>
+      <div class="hero-shot">
+        <img data-shot="status" data-base="img/macos/" src="img/macos/en-status.png" alt="loft status" />
+      </div>
+    </div>
+  </header>
+
+  <section id="products">
+    <div class="wrap">
+      <h2 data-i="prodH">What you run</h2>
+      <p class="cap" data-i="prodCap">One protocol, loft/1.0. The operator holds the node, the panel, and the member keys.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="k" data-i="pAppK">macOS</div>
+          <h3 data-i="pAppH">App</h3>
+          <p data-i="pApp">Menu-bar client. Named connections, loft:// import, local SOCKS5 and TUN.</p>
+          <a class="more" href="#download" data-i="pAppA">Download the DMG</a>
+        </article>
+        <article class="card">
+          <div class="k" data-i="pPanelK">loft-panel</div>
+          <h3 data-i="pPanelH">Panel</h3>
+          <p data-i="pPanel">Web admin for one server: networks, members, domains, mail, packages. Install without editing files by hand.</p>
+          <a class="more" href="#panel" data-i="pPanelA">Panel overview</a>
+        </article>
+        <article class="card">
+          <div class="k" data-i="pNodeK">loft-node</div>
+          <h3 data-i="pNodeH">Node</h3>
+          <p data-i="pNode">Self-hosted edge. Debian package or tarball. Fronts: GET, WebSocket, HTTP/2, QUIC, HTTP/3.</p>
+          <a class="more" href="#download" data-i="pNodeA">Install the node</a>
+        </article>
+        <article class="card">
+          <div class="k" data-i="pSpecK">loft/1.0</div>
+          <h3 data-i="pSpecH">Spec</h3>
+          <p data-i="pSpec">Open protocol. A third party may implement a client or a node from the wire document.</p>
+          <a class="more" href="https://a3app.github.io/loft/protocol.html" data-i="pSpecA">Read the protocol</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="how">
+    <div class="wrap">
+      <h2 data-i="howH">How it works</h2>
+      <p class="cap" data-i="howCap">The public path is ordinary HTTPS. The overlay is the session inside it.</p>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><p data-i="s1">Applications talk to a local SOCKS5 or TUN. The client keeps that listener while the front rotates.</p></div>
+        <div class="step"><span class="n">02</span><p data-i="s2">Streams share one mux and are sealed with ChaCha20-Poly1305.</p></div>
+        <div class="step"><span class="n">03</span><p data-i="s3">Outside, the session is TLS 1.3. A CDN or reverse proxy may terminate it.</p></div>
+        <div class="step"><span class="n">04</span><p data-i="s4">A short gap parks the mux for gap_hold_ms. Resume uses a fresh 0x02 and the same instance_id.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="app">
+    <div class="wrap">
+      <h2 data-i="appH">App</h2>
+      <p class="cap" data-i="appCap">The macOS client lives in the menu bar. Open the overlay, keep several named connections, import a loft:// link or a .loft file.</p>
+      <div class="shots">
+        <figure>
+          <img data-shot="status" data-base="img/macos/" src="img/macos/en-status.png" alt="" />
+          <figcaption data-i="shotStatus">Status</figcaption>
+        </figure>
+        <figure>
+          <img data-shot="connections" data-base="img/macos/" src="img/macos/en-connections.png" alt="" />
+          <figcaption data-i="shotConns">Connections</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="panel">
+    <div class="wrap">
+      <h2 data-i="panelH">Panel</h2>
+      <p class="cap" data-i="panelCap">One loft server: the node, networks and members, addresses and upstream channels, domains, certificates, mail, packages, and panel users.</p>
+      <div class="panel-shot">
+        <img data-shot="overview" data-base="img/panel/" src="img/panel/en-overview.png" alt="loft-panel" />
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <h2 data-i="dlH">Download</h2>
+      <p class="cap" data-i="dlCap">Binaries from the latest GitHub Release. Dist publishes these names on every v* tag.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-i="thKind">Kind</th>
+              <th data-i="thArm">Apple Silicon / arm64</th>
+              <th data-i="thAmd">Intel / amd64</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i="kApp">macOS app</td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-macos-arm64.dmg">DMG</a></td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-macos-x86_64.dmg">DMG</a></td>
+            </tr>
+            <tr>
+              <td data-i="kMacCLI">macOS CLI</td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-darwin-arm64.tar.gz">tar.gz</a></td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-darwin-amd64.tar.gz">tar.gz</a></td>
+            </tr>
+            <tr>
+              <td data-i="kLinCLI">Linux CLI</td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-linux-arm64.tar.gz">tar.gz</a></td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-linux-amd64.tar.gz">tar.gz</a></td>
+            </tr>
+            <tr>
+              <td data-i="kNode">Node</td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-node-linux-arm64.tar.gz">tar.gz</a> · <a href="https://github.com/a3app/loft/releases/latest/download/loft-node_arm64.deb">deb</a></td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-node-linux-amd64.tar.gz">tar.gz</a> · <a href="https://github.com/a3app/loft/releases/latest/download/loft-node_amd64.deb">deb</a></td>
+            </tr>
+            <tr>
+              <td data-i="kPanel">Panel</td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-panel-linux-arm64.tar.gz">tar.gz</a> · <a href="https://github.com/a3app/loft/releases/latest/download/loft-panel_arm64.deb">deb</a></td>
+              <td class="mono"><a href="https://github.com/a3app/loft/releases/latest/download/loft-panel-linux-amd64.tar.gz">tar.gz</a> · <a href="https://github.com/a3app/loft/releases/latest/download/loft-panel_amd64.deb">deb</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cap" style="margin-top:16px" data-i="dlNote">The macOS DMG is ad-hoc signed. CLI archives contain loft, loft-front, loft-probe, and loft-bench. Checksums sit next to the files.</p>
+      <p>
+        <span data-i="sums">Checksums</span>:
+        <a href="https://github.com/a3app/loft/releases/latest/download/loft-clients-SHA256SUMS.txt">clients</a> ·
+        <a href="https://github.com/a3app/loft/releases/latest/download/loft-node-SHA256SUMS.txt">node</a> ·
+        <a href="https://github.com/a3app/loft/releases/latest/download/loft-panel-SHA256SUMS.txt">panel</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="alt" id="faq">
+    <div class="wrap faq">
+      <h2 data-i="faqH">Questions</h2>
+      <details open>
+        <summary data-i="q1">What is loft?</summary>
+        <p data-i="a1">An HTTPS overlay for operators. A laboratory LAN reached from outside, a server fleet, or a site-to-site path. Protocol loft/1.0. Share links as loft://.</p>
+      </details>
+      <details>
+        <summary data-i="q2">Who holds the keys?</summary>
+        <p data-i="a2">The operator. Member keys live on the controller. The public path is ordinary HTTPS; identity is inside the session.</p>
+      </details>
+      <details>
+        <summary data-i="q3">What do applications speak?</summary>
+        <p data-i="a3">Local SOCKS5 or TUN. SSH, a browser, and curl stay on the machine. The overlay carries those streams.</p>
+      </details>
+      <details>
+        <summary data-i="q4">Where does it run?</summary>
+        <p data-i="a4">macOS app and CLI, Linux CLI, Debian node and panel. RouterOS is a container. Keenetic, iOS, and Android are in the catalog.</p>
+      </details>
+      <details>
+        <summary data-i="q5">Is the protocol open?</summary>
+        <p data-i="a5">Yes. Apache License 2.0. A third party may implement loft from the spec. Software version is independent of protocol loft/1.0.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <h4>loft</h4>
+          <a href="#overlay" data-i="navOverlay">Overlay</a>
+          <a href="#app" data-i="navApp">App</a>
+          <a href="#panel" data-i="navPanel">Panel</a>
+          <a href="#download" data-i="navDl">Download</a>
+        </div>
+        <div>
+          <h4 data-i="fDoc">Docs</h4>
+          <a href="https://a3app.github.io/loft/">Spec</a>
+          <a href="https://a3app.github.io/loft/protocol.html">loft/1.0</a>
+          <a href="https://a3app.github.io/loft/guide.html">Guide</a>
+          <a href="privacy.html" data-i="fPrivacy">Privacy</a>
+        </div>
+        <div>
+          <h4 data-i="fOrg">a3app</h4>
+          <a href="https://github.com/a3app/loft" data-i="fSrc">Source</a>
+          <a href="https://github.com/a3app/loft/releases/latest" data-i="navDl">Download</a>
+          <a href="https://github.com/a3app/loft/blob/main/LICENSE" data-i="fLicense">Apache-2.0</a>
+        </div>
+        <div>
+          <h4>URI</h4>
+          <span class="mono">loft://</span>
+          <span class="mono">kind: loft</span>
+          <span class="mono">loft/1.0</span>
+        </div>
+      </div>
+      <div class="colophon">
+        <span>Made with love</span>
+        <svg class="heart" viewBox="0 0 7 6" aria-hidden="true" shape-rendering="crispEdges">
+          <rect x="1" y="0" width="2" height="1"/><rect x="4" y="0" width="2" height="1"/>
+          <rect x="0" y="1" width="7" height="2"/><rect x="1" y="3" width="5" height="1"/>
+          <rect x="2" y="4" width="3" height="1"/><rect x="3" y="5" width="1" height="1"/>
+        </svg>
+        <span>by A³</span>
+        <span data-i="footLegal">loft.cx · protocol loft/1.0</span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/i18n.js"></script>
+</body>
+</html>

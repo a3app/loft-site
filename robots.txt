@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loft.cx/sitemap.xml
